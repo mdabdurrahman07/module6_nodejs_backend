@@ -1,10 +1,10 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
+import type { Product } from "../types/productTypes";
+import { parseBody } from "../utility/parseBody";
 import {
   insertProduct,
   readProduct,
 } from "../services/products/productServices";
-import type { Product } from "../types/productTypes";
-import { parseBody } from "../utility/parseBody";
 
 export const productController = async (
   req: IncomingMessage,
@@ -68,16 +68,30 @@ export const productController = async (
     );
   }
   // edit a productController
-  else if(method === "PUT" && id !== null){
+  else if (method === "PUT" && id !== null) {
     const products = readProduct();
-    // const body = await parseBody(req)
-    const indexOfProduct = products.findIndex((p: Product) => p?.id === id)
+    const body = await parseBody(req);
+    const indexOfProduct = products.findIndex((p: Product) => p?.id === id);
+    if (indexOfProduct < 0) {
+      res.writeHead(404, { "content-type": "application/json" });
+      res.end(
+        JSON.stringify({
+          message: "Product Not Found",
+        }),
+      );
+    }
+    products[indexOfProduct] = {
+      id: products[indexOfProduct]?.id,
+      ...body,
+    };
+    // insert in db
+    insertProduct(products);
     res.writeHead(200, { "content-type": "application/json" });
     res.end(
       JSON.stringify({
         message: "Product Updated Successfully",
+        data: products[indexOfProduct],
       }),
-    )
-    console.log("the index value",indexOfProduct)
+    );
   }
 };
