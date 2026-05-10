@@ -15,7 +15,7 @@ export const productController = (
   const id =
     urlParts && urlParts[1] === "products" ? Number(urlParts[2]) : null;
   // console.log(id);
-
+  // get-all-products
   if (url === "/products" && method === "GET") {
     // const products = [
     //   {
@@ -36,12 +36,18 @@ export const productController = (
     res.end(
       JSON.stringify({ message: "This is products route", data: products }),
     );
-  } else if (method === "GET" && id !== null) {
+  }
+  // get-singleProduct  
+  else if (method === "GET" && id !== null) {
     const products = readProduct();
     const product = products.find((p: Product) => p.id === id);
     res.writeHead(200, { "content-type": "application/json" });
     res.end(
-      JSON.stringify({ message: "This is products route", data: product }),
+      JSON.stringify({ message: "This is product route", data: product }),
     );
+  }
+  // post-aProduct
+  else if(method === "POST" && url === "/products"){
+      
   }
 };
