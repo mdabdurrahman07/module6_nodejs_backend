@@ -94,4 +94,26 @@ export const productController = async (
       }),
     );
   }
+  // delete a product
+  else if (method === "DELETE" && id !== null) {
+    const products = readProduct();
+    const indexOfProduct = products.findIndex((p: Product) => p.id === id);
+    if (indexOfProduct < 0) {
+      res.writeHead(404, { "content-type": "application/json" });
+      res.end(
+        JSON.stringify({
+          message: "Product Not Found",
+        }),
+      );
+    }
+    products.splice(indexOfProduct, 1)
+    // insert updated product because one product is deleted
+    insertProduct(products)
+    res.writeHead(200, { "content-type": "application/json" });
+      res.end(
+        JSON.stringify({
+          message: "Product Deleted Successfully",
+        }),
+      );
+  }
 };
