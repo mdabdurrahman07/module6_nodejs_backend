@@ -1,14 +1,92 @@
 [
   {
     "id": 1,
-    "productName": "P-1"
+    "name": "Wireless Noise-Canceling Headphones",
+    "brand": "SonicWave",
+    "category": "Electronics",
+    "price": 199.99,
+    "stock": 45,
+    "rating": 4.8
   },
   {
     "id": 2,
-    "productName": "P-2"
+    "name": "Organic Cotton T-Shirt",
+    "brand": "EcoWear",
+    "category": "Apparel",
+    "price": 25.0,
+    "stock": 120,
+    "rating": 4.5
   },
   {
     "id": 3,
-    " productName": "P-3"
+    "name": "Smart Fitness Tracker",
+    "brand": "FitTech",
+    "category": "Electronics",
+    "price": 79.5,
+    "stock": 85,
+    "rating": 4.2
+  },
+  {
+    "id": 4,
+    "name": "Stainless Steel Water Bottle",
+    "brand": "HydroPeak",
+    "category": "Home & Kitchen",
+    "price": 22.99,
+    "stock": 200,
+    "rating": 4.9
+  },
+  {
+    "id": 5,
+    "name": "Professional Chef's Knife",
+    "brand": "CulinaryPro",
+    "category": "Kitchenware",
+    "price": 115.0,
+    "stock": 30,
+    "rating": 4.7
+  },
+  {
+    "id": 6,
+    "name": "Ergonomic Office Chair",
+    "brand": "ComfortSeat",
+    "category": "Furniture",
+    "price": 249.99,
+    "stock": 15,
+    "rating": 4.6
+  },
+  {
+    "id": 7,
+    "name": "Bluetooth Portable Speaker",
+    "brand": "AudioBoom",
+    "category": "Electronics",
+    "price": 55.0,
+    "stock": 60,
+    "rating": 4.4
+  },
+  {
+    "id": 8,
+    "name": "Non-Stick Frying Pan",
+    "brand": "PureCook",
+    "category": "Kitchenware",
+    "price": 39.95,
+    "stock": 75,
+    "rating": 4.3
+  },
+  {
+    "id": 9,
+    "name": "Natural Lavender Essential Oil",
+    "brand": "PureZen",
+    "category": "Wellness",
+    "price": 12.99,
+    "stock": 150,
+    "rating": 4.8
+  },
+  {
+    "id": 10,
+    "name": "Ultra-Wide Gaming Monitor",
+    "brand": "VisionX",
+    "category": "Electronics",
+    "price": 450.0,
+    "stock": 10,
+    "rating": 4.9
   }
 ]
