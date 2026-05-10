@@ -1,4 +1,5 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
+import { readProduct } from "../services/products/readProduct";
 
 export const productController = (
   req: IncomingMessage,
@@ -23,6 +24,7 @@ export const productController = (
         productName: "P-3",
       },
     ];
+    readProduct();
     res.writeHead(200, { "content-type": "application/json" });
     res.end(
       JSON.stringify({ message: "This is product route", data: products }),
