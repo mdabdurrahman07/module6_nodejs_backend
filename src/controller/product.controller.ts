@@ -58,7 +58,7 @@ export const productController = async (
     products.push(newProduct);
     // new productList updating
     insertProduct(products);
-    console.log(body);
+    // console.log(body);
     res.writeHead(200, { "content-type": "application/json" });
     res.end(
       JSON.stringify({
@@ -66,5 +66,18 @@ export const productController = async (
         data: newProduct,
       }),
     );
+  }
+  // edit a productController
+  else if(method === "PUT" && id !== null){
+    const products = readProduct();
+    // const body = await parseBody(req)
+    const indexOfProduct = products.findIndex((p: Product) => p?.id === id)
+    res.writeHead(200, { "content-type": "application/json" });
+    res.end(
+      JSON.stringify({
+        message: "Product Updated Successfully",
+      }),
+    )
+    console.log("the index value",indexOfProduct)
   }
 };
