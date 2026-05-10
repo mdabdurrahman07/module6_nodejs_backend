@@ -1,8 +1,9 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { readProduct } from "../services/products/readProduct";
 import type { Product } from "../types/productTypes";
+import { parseBody } from "../utility/parseBody";
 
-export const productController = (
+export const productController = async (
   req: IncomingMessage,
   res: ServerResponse,
 ) => {
@@ -37,7 +38,7 @@ export const productController = (
       JSON.stringify({ message: "This is products route", data: products }),
     );
   }
-  // get-singleProduct  
+  // get-singleProduct
   else if (method === "GET" && id !== null) {
     const products = readProduct();
     const product = products.find((p: Product) => p.id === id);
@@ -47,7 +48,8 @@ export const productController = (
     );
   }
   // post-aProduct
-  else if(method === "POST" && url === "/products"){
-      
+  else if (method === "POST" && url === "/products") {
+    const body = await parseBody(req);
+    console.log(body);
   }
 };

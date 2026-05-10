@@ -79,14 +79,5 @@
     "price": 12.99,
     "stock": 150,
     "rating": 4.8
-  },
-  {
-    "id": 10,
-    "name": "Ultra-Wide Gaming Monitor",
-    "brand": "VisionX",
-    "category": "Electronics",
-    "price": 450.0,
-    "stock": 10,
-    "rating": 4.9
   }
 ]
