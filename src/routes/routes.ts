@@ -1,5 +1,6 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { productController } from "../controller/product.controller";
+import { sendResponse } from "../utility/sendResponse";
 
 export const routeHandler = (req: IncomingMessage, res: ServerResponse) => {
   // url
@@ -9,12 +10,10 @@ export const routeHandler = (req: IncomingMessage, res: ServerResponse) => {
 
   if (url === "/" && method === "GET") {
     //console.log(`you are on ${url} and method is ${method}`);
-    res.writeHead(200, { "content-type": "application/json" });
-    res.end(JSON.stringify({ message: "This is root route" }));
+    sendResponse(res, true, "This is root route", 200);
   } else if (url?.startsWith("/products")) {
     productController(req, res);
   } else {
-    res.writeHead(404, { "content-type": "application/json" });
-    res.end(JSON.stringify({ message: "Route not found" }));
+    sendResponse(res, false, "Route not found", 404);
   }
 };
