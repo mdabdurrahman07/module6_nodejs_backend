@@ -1,5 +1,6 @@
 import { createServer, IncomingMessage, Server, ServerResponse } from "http";
 import { routeHandler } from "./routes/routes";
+import config from "./config";
 
 const server: Server = createServer(
   (req: IncomingMessage, res: ServerResponse) => {
@@ -7,6 +8,6 @@ const server: Server = createServer(
   },
 );
 
-server.listen(5000, () => {
-  console.log(`server is running on the 5000 port`);
+server.listen(config.port, () => {
+  console.log(`server is running on the ${config.port} port`);
 });
